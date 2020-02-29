@@ -1,21 +1,25 @@
 # TO-DO: complete the helpe function below to merge 2 sorted arrays
 def merge(arrA, arrB):
-    if len(arr) > 1:
-        middle = len(arr)
+    pass
+    # if len(arr) > 1:
+    # middle = len(arr)
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
     # TO-DO
-    if len(arr) > 1:
-        middle = len(arr)//2
-        left_side = arr[0:middle]
-        right_side = arr[middle+1:0]
 
+    if len(arr) > 1:
+        middle = len(arr)//2  # find the middle of the array to split
+        left_side = arr[0:middle]  # left side of the array
+        right_side = arr[middle+1:0]  # right side of the array
+
+    # calling merge_sort()
     merge_sort(left_side)
     merge_sort(right_side)
     i = j = k = 0
 
+    # copy data to temp arrays left_side[] + right_side[]
     while i < len(left_side) and j < len(right_side):
         if left_side[i] < right_side[j]:
             arr[k] = left_side[i]
@@ -25,6 +29,16 @@ def merge_sort(arr):
             j += 1
         k += 1
 
+    # checking if any element was left
+    while i < len(left_side):
+        arr[k] = left_side[i]
+        i += 1
+        k += 1
+
+    while j < len(right_side):
+        arr[k] = right_side[j]
+        j += 1
+        k += 1
     return arr
 
 
